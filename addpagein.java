@@ -68,7 +68,7 @@ public class addpagein extends HttpServlet {
 		
 		List<String> genrelist = Arrays.asList(genre);
 
-        out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
+            out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>著者</td><td><input type=\"text\" name=\"writer\" disabled=\"disabled\" value=\"" + writer + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>出版社</td><td><input type=\"text\" name=\"publisher\" disabled=\"disabled\" value=\"" + publisher + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>価格</td><td><input type=\"text\" name=\"price\" disabled=\"disabled\" value=\"" + price + "\" /></td></tr>");
@@ -128,22 +128,22 @@ public class addpagein extends HttpServlet {
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"2\" disabled=\"disabled\" ");
     		if(genrelist.contains("2") ) {
     			out.println("checked");
-    	}
-    	out.println("/>ビジネス");
+    		}
+    		out.println("/>ビジネス");
     	
     	
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"3\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("3")) {
 	    		out.println("checked");
 	    	}
-	    out.println("/>教養");
+	    	out.println("/>教養");
 	    
 	    
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"4\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("4")) {
 	    		out.println("checked");
 	    	}
-	    out.println("/>趣味</td></tr>");
+	    	out.println("/>趣味</td></tr>");
 	    
 	    
 	    out.println("        <tr><td></td><td>在庫</td><td>");
@@ -151,7 +151,7 @@ public class addpagein extends HttpServlet {
 	    	if(stock == "1") {
 	    		out.println("checked");
 	    	}
-	    out.println("/>あり");
+	    	out.println("/>あり");
 	    
 	    
 	    out.println("          <input type=\"radio\" name=\"stock\" value=\"0\" disabled=\"disabled\" ");

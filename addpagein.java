@@ -45,15 +45,16 @@ public class addpagein extends HttpServlet {
 	    out.println("    <h3>　【書籍登録確認画面】</h3>");
 	    out.println("      <table>");
 	    
-		String title, writer, publisher, price, stock, remarks;
+		String title, writer, publisher, price, remarks;
 		String[] genre;
+		String[] stock;
 	    
 		title = request.getParameter("title");
 		writer = request.getParameter("writer");
 		publisher = request.getParameter("publisher");
 		price = request.getParameter("price");
 		genre = request.getParameterValues("genre");
-		stock = request.getParameter("stock");
+		stock = request.getParameterValues("stock");
 		remarks = request.getParameter("remarks");
 	    
 		// １：ジャンルのString配列型のデータを、List型に変換
@@ -67,6 +68,7 @@ public class addpagein extends HttpServlet {
 //        genrearray.add("4");
 		
 		List<String> genrelist = Arrays.asList(genre);
+		List<String>stocklist = Arrays.asList(stock);
 
             out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>著者</td><td><input type=\"text\" name=\"writer\" disabled=\"disabled\" value=\"" + writer + "\" /></td></tr>");
@@ -128,36 +130,38 @@ public class addpagein extends HttpServlet {
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"2\" disabled=\"disabled\" ");
     		if(genrelist.contains("2") ) {
     			out.println("checked");
-    		}
-    		out.println("/>ビジネス");
+    	}
+    	out.println("/>ビジネス");
     	
     	
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"3\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("3")) {
 	    		out.println("checked");
 	    	}
-	    	out.println("/>教養");
+	    out.println("/>教養");
 	    
 	    
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"4\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("4")) {
 	    		out.println("checked");
 	    	}
-	    	out.println("/>趣味</td></tr>");
+	    out.println("/>趣味</td></tr>");
 	    
 	    
 	    out.println("        <tr><td></td><td>在庫</td><td>");
 	    out.println("          <input type=\"radio\" name=\"stock\" value=\"1\" checked disabled=\"disabled\" ");
-	    	if(stock == "1") {
+	    	if(stocklist.contains("1")) {
 	    		out.println("checked");
 	    	}
-	    	out.println("/>あり");
+	    out.println("/>あり");
 	    
 	    
 	    out.println("          <input type=\"radio\" name=\"stock\" value=\"0\" disabled=\"disabled\" ");
-	    	
-	    out.println("/>なし</td></tr>");
-	    out.println("        <tr><td></td><td>備考</td><td><textarea name=\"remarks\" cols=\"40\" rows=\"4\" disabled=\"disabled\" value= \"" + remarks + "\" /></textarea></td></tr>");
+    	if(stocklist.contains("0")) {
+    		out.println("checked");
+    	}
+	    out.println("/>なし</td></tr>");    
+	    out.println("        <tr><td></td><td>備考</td><td><textarea name=\"remarks\" cols=\"40\" rows=\"4\" disabled=\"disabled\" value= \"" + remarks + "\" />"+ remarks +"</textarea></td></tr>");
 	    out.println("        <tr><td></td><td height=\"30\"></td><td></td></tr>");
 	    out.println("        <tr><td></td><td></td><td align=\"right\">");
 	    out.println("          <input type=\"submit\" onclick=\"window.history.back();\" value=\"キャンセル\" />");
